@@ -26,7 +26,7 @@ public class BookingTourTask {
 		chooseTourAppObject.getDateTextField().sendKeys(Keys.ENTER);
 		chooseTourAppObject.getChooseLocation().click();
 		
-//		ScreenshotFw.takeFullPageShot(driver, "chooseTour");
+		ScreenshotFw.takeFullPageShot(driver, "chooseTour");
 	}
 	public void bookingOptions(String date) {
 		chooseTourAppObject.getDateTextFieldBooking().clear();
