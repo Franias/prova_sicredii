@@ -36,10 +36,7 @@ public class BookingTourTask {
 		chooseTourAppObject.getBookNowButton().click();
 		chooseTourAppObject.getConfirmBookingButton().click();
 		chooseTourAppObject.getPayNowButton().click();	
-		
-//		ScreenshotFw.takeFullPageShot(driver, "bookingOptions");
-	}
-	
+	}	
 	public void paymentSteps(String FirstName, String LastName, String CardNumber, String CVV) {
 		chooseTourAppObject.getGatewayButton().click();
 		chooseTourAppObject.getSearchTextField().click();
