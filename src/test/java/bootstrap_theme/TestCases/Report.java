@@ -1,4 +1,4 @@
-package frameworks.utils;
+package bootstrap_theme.TestCases;
 
 import java.io.File;
 
@@ -15,6 +15,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
+import frameworks.utils.ScreenshotFw;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Report {
@@ -25,13 +26,6 @@ public class Report {
 	public static ExtentHtmlReporter htmlReport;
 	public static ExtentReports extent;
 	public static ExtentTest test;
-
-	private static void createReportFolder() {
-		File reportDirectory = new File(PATH_REPORT);
-		if (!reportDirectory.exists()) {
-			reportDirectory.mkdir();
-		}
-	}
 
 	@BeforeClass
 	public static void setExtent() {
@@ -51,6 +45,7 @@ public class Report {
 
 	}
 
+
 	@Before
 	public void setUp() {
 		WebDriverManager.chromedriver().setup();
@@ -64,12 +59,20 @@ public class Report {
 		
 		test = extent.createTest("TestCaseName");
 		
-		if(driver.getTitle().contentEquals("My Store")) {
+		if(driver.getTitle().contentEquals("xxxx")) {
+			System.out.println("p");
 			test.log(Status.INFO, "Info test", ScreenshotFw.takeViewpointShot(driver, "primeiro_teste"));
 			test.log(Status.PASS, "Imagem: 'demo store', encontrado com sucesso!", ScreenshotFw.capture(driver));
 		} else {
+			System.out.println("f");
 			test.log(Status.INFO, "Info test", ScreenshotFw.takeViewpointShot(driver, "primeiro_teste"));
 			test.log(Status.FAIL, "Imagem: 'demo store', não encontrado!", ScreenshotFw.capture(driver));
+		}
+	}
+	private static void createReportFolder() {
+		File reportDirectory = new File(PATH_REPORT);
+		if (!reportDirectory.exists()) {
+			reportDirectory.mkdir();
 		}
 	}
 	

@@ -15,12 +15,10 @@ public class DriverManagerFactoryFw {
 			case CHROME:	
 				WebDriverManager.chromedriver().setup();
 				ChromeOptions option = new ChromeOptions();
-				option.addArguments("start-maximized");
-				option.addArguments("--window-size(1024,768)");
+				option.addArguments("--start-maximized");
 				DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-				capabilities.setCapability(ChromeOptions.CAPABILITY, option);
-				
-				driver = new ChromeDriver();
+				capabilities.setCapability(ChromeOptions.CAPABILITY, option);				
+				driver = new ChromeDriver(option);
 				break;
 			case FIREFOX:
 				break;
