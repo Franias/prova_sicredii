@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import frameworks.utils.WaitElementFw;
+
 public class SaveCostumerAppObject{
 	private static WebDriver driver;
 	
@@ -20,7 +22,7 @@ public class SaveCostumerAppObject{
 		return driver.findElement(By.xpath("//a[@href='/demo/bootstrap_theme_v4/edit/103']"));
 	}	
 	public WebElement getCostumerNameTextField() {
-		return driver.findElement(By.name("customerName"));
+		return driver.findElement(By.id("field-customerName"));
 	}	
 	public WebElement getLastNameTextField() {
 		return driver.findElement(By.id("contactLastName"));
@@ -56,7 +58,15 @@ public class SaveCostumerAppObject{
 		return driver.findElement(By.id("form-button-save"));
 	}
 	
+	public WebElement getMoreButton() {
+		WaitElementFw.elementToBeClickable(driver, By.xpath("//button[@class='btn btn-default btn-outline-dark gc-bootstrap-dropdown dropdown-toggle']"));
+		return driver.findElement(By.xpath("//button[@class='btn btn-default btn-outline-dark gc-bootstrap-dropdown dropdown-toggle']"));
+	}
 	
+	public WebElement getViewButton() {
+		WaitElementFw.visibilityOfElementLocated(driver, By.xpath("//a[@href='/demo/bootstrap_theme_v4/read/103']"));
+		return driver.findElement(By.xpath("//a[text()=' View                                        ']"));
+	}	
 	
 	
 
