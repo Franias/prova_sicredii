@@ -1,6 +1,8 @@
 package frameworks.utils;
+
 public enum DriverTypeFw {
 	CHROME,
 	FIREFOX,
-	CHROME_HEADLESS;
+	IE,
+	CHROME_HEADLESS;	
 }

@@ -4,14 +4,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import bootstrap_theme.TestCases.AddCostumerTestCase;
+import bootstrap_theme.TestCases.SaveCostumerTestCase;
 
 @RunWith(Suite.class)
 
 @SuiteClasses({
 	
-	AddCostumerTestCase.class,
-	AddCostumerTestCase.class	
+	SaveCostumerTestCase.class
 })	
 public class AllTests {
 	

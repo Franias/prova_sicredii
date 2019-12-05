@@ -1,17 +1,16 @@
-package bootstrap_theme.Suites;
+package automationpratice.Suites;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import bootstrap_theme.TestCases.AddCostumerTestCase;
+import automationpratice.TestCases.BuyProductTestCase;
 
 @RunWith(Suite.class)
 
 @SuiteClasses({
 	
-	AddCostumerTestCase.class,
-	AddCostumerTestCase.class	
+	BuyProductTestCase.class
 })	
 public class AllTests {
 	

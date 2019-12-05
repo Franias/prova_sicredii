@@ -24,9 +24,6 @@ public class ScreenshotFw {
 
 	public static MediaEntityModelProvider takeViewpointShot(WebDriver driver, String nomeMetodo) {
 		try {
-			
-			// Converter objeto de WebDriver em TakeScreenshot e Mover arquivo
-			// de imagem para o destino
 			File srcShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 			String path = PATH_SCREENSHOT + File.separator + srcShot.getName();
