@@ -28,12 +28,10 @@ public class BuyProductTestCase extends BaseTestFw  {
 		addToCartTask.searchProduct("blouse");
 		addToCartTask.addToCart();
 		addToCartTask.validateBuyInfos();
-		shoppingChartTask.shoppingCartSummary(email+"y@gmail.com");
+		shoppingChartTask.shoppingCartSummary(email+"@mail.com");
 		createAccountTask.signIn("password", "Francielli", "Dias","Rua Miranda","apto 10","32154", "Porto Alegre","55515155");
 		createAccountTask.validateAdressInfo("Rua Miranda","apto 10","32154", "Porto Alegre");
 		shoppingChartTask.proceedToCheckout();
-		shoppingChartTask.validateTotalPrice();
-		
+		shoppingChartTask.validateTotalPrice();		
 	}
-
 }

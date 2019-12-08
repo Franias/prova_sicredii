@@ -34,10 +34,6 @@ public class AddToCartAppObject{
 		}
 		return driver.findElement(By.className("product_img_link"));
 	}
-	public WebElement priceProduct() {
-		
-		return driver.findElement(By.id("our_price_display"));				
-	}	
 	
 	public WebElement getQuantityTextField() {
 		driver.switchTo().defaultContent();		
