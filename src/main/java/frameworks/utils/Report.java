@@ -58,7 +58,7 @@ public class Report {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://automationpractice.com/index.php");
+		driver.get("http://automationpractice.com/");
 	}
 
 	@Test
