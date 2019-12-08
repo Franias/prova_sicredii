@@ -24,6 +24,7 @@ public class AddToCartAppObject{
 		
 	}	
 	public WebElement validarLable() {
+		WaitElementFw.visibilityOfElementLocated(driver, By.className("lighter"));
 		return driver.findElement(By.className("lighter"));//blouse
 	}
 	//addToCart
@@ -38,27 +39,28 @@ public class AddToCartAppObject{
 		return driver.findElement(By.id("our_price_display"));				
 	}	
 	
-	public WebElement addQuantity() {
+	public WebElement getQuantityTextField() {
 		driver.switchTo().defaultContent();		
-		return driver.findElement(By.id("quantity_wanted"));
+		return driver.findElement(By.name("qty"));
 	}	
 	
-	public WebElement getPrice() {
+	public WebElement getPriceLabel() {
 		return driver.findElement(By.id("our_price_display")); 
 	}
-	public Select addSizeComboBox() {
+	public Select getSizeComboBox() {
 		return new Select(this.driver.findElement(By.id("group_1")));
 	}
 	
-	public WebElement chooseOrange() {
-		return driver.findElement(By.name("Orange"));
+	public WebElement chooseWhiteColor() {
+		return driver.findElement(By.id("color_8"));
 	}
-	public WebElement addToCart() {
+	public WebElement getAddToCartButton() {
 		return driver.findElement(By.name("Submit"));
 	}
 	
 	public WebElement getTotalProductsLabel() {
-		return driver.findElement(By.cssSelector(".ajax_block_products_total"));
+		WaitElementFw.visibilityOfElementLocated(driver, By.id("layer_cart_product_price"));
+		return driver.findElement(By.id("layer_cart_product_price"));
 	}
 	public WebElement getSuccessMessageLabel() {
 		return driver.findElement(By.cssSelector("div[class= 'layer_cart_product col-xs-12 col-md-6'] > h2"));
