@@ -18,7 +18,7 @@ public class BaseTestFw {
 	
 	@AfterClass 
 	public static void tearDown() {
-//		quitDriver();
+		quitDriver();
 	}
 
 
