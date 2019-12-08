@@ -16,6 +16,7 @@ Architecture:
 
 Evidence from tests  
  ||Reports/Screenshots 
+ 
 Dependency Manager:  Maven
 
 Code: Java versão 8
