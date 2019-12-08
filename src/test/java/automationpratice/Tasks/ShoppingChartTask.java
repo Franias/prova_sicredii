@@ -1,5 +1,7 @@
 package automationpratice.Tasks;
 
+import static org.junit.Assert.assertEquals;
+
 import org.openqa.selenium.WebDriver;
 
 import automationpratice.AppObjects.CreateAccountAppObject;
@@ -11,13 +13,14 @@ public class ShoppingChartTask {
 	private WebDriver driver; 
 	
 	private ShoppingChartAppObject shoppingChartAppObject = new ShoppingChartAppObject(driver);	
-	
+	public String price;
+	public String totalPriceActual;
+	public String shipping;
 	public ShoppingChartTask(WebDriver driver) {
 		this.driver = driver;
 		shoppingChartAppObject = new ShoppingChartAppObject(driver);
 	}
-	public void shoppingCartSummary(String email) {
-		
+	public void shoppingCartSummary(String email) {		
 		shoppingChartAppObject.plusQuantityButton().click();		
 		shoppingChartAppObject.getSummaryProceedButton().click();	
 		shoppingChartAppObject.getEmailTextField().clear();
@@ -31,10 +34,22 @@ public class ShoppingChartTask {
 		shoppingChartAppObject.getAdressSubmitButton().click();
 		shoppingChartAppObject.getConfirmTermsCheckBox().click();		
 		shoppingChartAppObject.getShippingProceedButton().click();
+		totalPriceActual = shoppingChartAppObject.getTotalPrice().getText().replace("$", "");
+		price = shoppingChartAppObject.getProductPrice().getText().replace("$", "");
+		shipping = shoppingChartAppObject.getShippingPrice().getText().replace("$", "");		
 		shoppingChartAppObject.getBankWireButton().click();
-		shoppingChartAppObject.getConfirmOrderButton().click();			
+		shoppingChartAppObject.getConfirmOrderButton().click();		
+		shoppingChartAppObject.getConfirmMessage();
+		String actual = shoppingChartAppObject.getConfirmMessage().getText();
+		assertEquals("Your order on My Store is complete.", actual);
 	}
-	
-	
-
+	public void validateTotalPrice() {
+		double priceNum = Double.parseDouble(price);
+		double totalExpected = 3*priceNum + Double.parseDouble(shipping);
+		if(totalExpected == Double.parseDouble(totalPriceActual)) {
+			System.out.println("Same price positive validation");
+		} else {
+			System.out.println("Negative validation/; it's not same price");
+		}		
+	}
 }

@@ -23,8 +23,10 @@ public class CreateAccountTask {
 	public void signIn(String passwrd, String firstName, String lastName,String adress1, String adress2, String postalCode, String city, String phone) {
 
 		createAccountAppObject.getGenderRadio().click();
+		createAccountAppObject.getFirstNameTextField().clear();
 		createAccountAppObject.getFirstNameTextField().sendKeys(firstName);
-		createAccountAppObject.getLastNameTextField().sendKeys(lastName);
+		createAccountAppObject.getLastNameTextField().clear();
+		createAccountAppObject.getLastNameTextField().sendKeys(lastName);		
 		createAccountAppObject.getPasswordTextField().sendKeys(passwrd);
 		createAccountAppObject.getDaysComboBox().selectByValue("10");
 		createAccountAppObject.getMonthComboBox().selectByValue("10");

@@ -42,15 +42,13 @@ public class ShoppingChartAppObject {
 	}
 
 	public WebElement getProductPrice() {
-		return driver.findElement(By.xpath("//span[@id='product_price_2_8_247508']/span[@class='price']"));
-	}
-	public WebElement getTotalProductPrice() {
-		return driver.findElement(By.id("total_product_price_2_8_247508"));
+		return driver.findElement(By.xpath("//span[@class='price']/span[@class='price']"));
 	}
 	public WebElement getShippingPrice() {
 		return driver.findElement(By.id("total_shipping"));
 	}
 	public WebElement getTotalPrice() {
+		WaitElementFw.visibilityOfElementLocated(driver, By.id("total_price"));
 		return driver.findElement(By.id("total_price"));
 	}
 
@@ -60,4 +58,8 @@ public class ShoppingChartAppObject {
 	public WebElement getConfirmOrderButton() {
 		return driver.findElement(By.xpath("//button[@type='submit'][@class='button btn btn-default button-medium']"));
 	}
+	public WebElement getConfirmMessage() {
+		return driver.findElement(By.xpath("//p[@class='cheque-indent']/strong"));
+	}
+	
 }
